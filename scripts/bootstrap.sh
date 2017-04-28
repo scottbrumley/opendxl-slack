@@ -115,6 +115,8 @@ installSlackClient(){
 setEnvVariables(){
     /vagrant/scripts/env.sh
 }
+
+setEnvVariables
 installPython
 installGit
 installPip
@@ -122,6 +124,7 @@ installCommonPython
 installOpenDXLCLient
 checkOpenSSL
 installDos2Unix
+installSlackClient
 
 if [[ "${ROOT_DIR}" == "/vagrant" ]]; then
     installDocker
