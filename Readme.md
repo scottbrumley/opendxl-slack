@@ -23,8 +23,8 @@
 export SLACK_CLIENT_ID='YOUR_ID'
 export SLACK_CLIENT_SECRET='YOUR_SECRET'
 
-echo "export SLACK_CLIENT_ID='YOUR_ID'" | sudo tee -a /etc/rc.local
-echo "export SLACK_CLIENT_SECRET='YOUR_SECRET'" | sudo tee -a /etc/rc.local
+echo "export SLACK_CLIENT_ID='YOUR_ID'" | sudo tee -a /etc/environment
+echo "export SLACK_CLIENT_SECRET='YOUR_SECRET'" | sudo tee -a /etc/environment
 ```
 
 
