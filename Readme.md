@@ -14,6 +14,19 @@
 4. Run installer for Virtualbox
 3. Download Git https://git-scm.com/downloads
 
+### Slack Environment Variables
+* Create a file named scripts/env.sh
+* Make executable chmod +x scripts/env.sh
+```
+#!/bin/bash
+
+export SLACK_CLIENT_ID='YOUR_ID'
+export SLACK_CLIENT_SECRET='YOUR_SECRET'
+
+echo "export SLACK_CLIENT_ID='YOUR_ID'" | sudo tee -a /etc/rc.local
+echo "export SLACK_CLIENT_SECRET='YOUR_SECRET'" | sudo tee -a /etc/rc.local
+```
+
 
 ## How to get this repo working
 
@@ -57,6 +70,7 @@ unique_broker_id_2=broker_id_2;broker_port_2;broker_hostname_2;broker_ip_2
 
 Be Patient while the environment builds.  Vagrant will build a Ubuntu environment to play around with.
 8. Once built cd /vagrant
+
 
 ## Phoenix the Environment
 If you want to burn the whole thing to the ground just exit the guest and use this command.
