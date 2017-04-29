@@ -28,6 +28,7 @@ installPython(){
         sudo make install
         cd ..
         rm -rf Python-2.7.9
+        rm Python-2.7.9.tgz
     fi
 }
 
