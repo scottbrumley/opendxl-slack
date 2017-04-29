@@ -18,28 +18,16 @@ installPython(){
     if [[ "${PY_VER}" =~ "${REQ_PY_VER}" ]]; then
         echo "Already Version ${REQ_PY_VER}"
     else
-        sudo apt-get update
-        sudo apt-get -y upgrade
-
-        echo "deb http://httpredir.debian.org/debian trusty main" | sudo tee -a /etc/apt/sources.list.d/python-trusty.list
-        echo "deb-src http://httpredir.debian.org/debian trusty main" | sudo tee -a /etc/apt/sources.list.d/python-trusty.list
-        echo "deb http://httpredir.debian.org/debian trusty-updates main" | sudo tee -a /etc/apt/sources.list.d/python-trusty.list
-        echo "deb-src http://httpredir.debian.org/debian trusty-updates main" | sudo tee -a /etc/apt/sources.list.d/python-trusty.list
-        echo "deb http://security.debian.org/ trusty/updates main" | sudo tee -a /etc/apt/sources.list.d/python-trusty.list
-        echo "deb-src http://security.debian.org/ trusty/updates main" | sudo tee -a /etc/apt/sources.list.d/python-trusty.list
-
-
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7638D0442B90D010
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9D6D8F6BC857C906
-
-        sudo echo 'Package: *' >> python-trusty-pin
-        sudo echo 'Pin: release o=Debian' >> python-trusty-pin
-        sudo echo 'Pin-Priority: -10' >> python-trusty-pin
-        sudo mv python-trusty-pin /etc/apt/preferences.d/python-trusty-pin
-
-        sudo apt-get update
-        sudo apt-get install -y -t trusty python2.7
+        sudo apt-get install -y build-essential
+        sudo apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+        wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
+        tar -xvf Python-2.7.9.tgz
+        cd Python-2.7.9
+        ./configure
+        make
+        sudo make install
+        cd ..
+        rm -rf Python-2.7.9
     fi
 }
 
@@ -109,6 +97,8 @@ installDos2Unix(){
 }
 
 installSlackClient(){
+    apt-get install libffi-dev libssl-dev
+
     sudo pip install slackclient
 }
 
