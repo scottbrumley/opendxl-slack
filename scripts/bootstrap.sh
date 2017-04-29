@@ -116,6 +116,9 @@ setEnvVariables(){
     /vagrant/scripts/env.sh
 }
 
+installWatson(){
+    sudo pip install --upgrade watson-developer-cloud
+}
 setEnvVariables
 installPython
 installGit
@@ -125,6 +128,7 @@ installOpenDXLCLient
 checkOpenSSL
 installDos2Unix
 installSlackClient
+installWatson
 
 if [[ "${ROOT_DIR}" == "/vagrant" ]]; then
     installDocker
