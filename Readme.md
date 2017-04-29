@@ -19,14 +19,10 @@
 * Make executable chmod +x scripts/env.sh
 ```
 #!/bin/bash
+echo "export SLACK_BOT_TOKEN='MY BOT TOKEN'" | sudo tee -a /etc/environment
+echo "export BOT_NAME='MY BOT NAME'" | sudo tee -a /etc/environment
 
-export SLACK_CLIENT_ID='YOUR_ID'
-export SLACK_CLIENT_SECRET='YOUR_SECRET'
-
-echo "export SLACK_CLIENT_ID='YOUR_ID'" | sudo tee -a /etc/environment
-echo "export SLACK_CLIENT_SECRET='YOUR_SECRET'" | sudo tee -a /etc/environment
 ```
-
 
 ## How to get this repo working
 
