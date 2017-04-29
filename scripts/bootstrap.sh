@@ -100,7 +100,7 @@ installDocker(){
 installFlask(){
     ## Setup Flask
     ## Use flask run --host=0.0.0.0 to start Flask
-    sudo pip install Flask
+    sudo pip install flask
     sudo echo 'export FLASK_APP=$ROOT_DIR/examples/tie_rep_api.py' >> /etc/bash.bashrc
 }
 
