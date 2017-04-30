@@ -206,12 +206,16 @@ def takeAction(commandStr,channel):
         response = "Looking up md5 hash ..."
         slack_client.api_call("chat.postMessage", channel=channel,
                           text=response, as_user=True)
-        response = getFileRep("836e935c5539ed23fad863cb823c0a8a")
-        slack_client.api_call("chat.postMessage", channel=channel,
-                              text=response, as_user=True)
-        return False
+        md5 = re.search('check\s+md5\s+([a-f0-9]{32})', commandStr)
+        if md5:
+            myHash = md5.group(1)
+            if is_md5(myHash):
+                response = getFileRep(myHash)
+                slack_client.api_call("chat.postMessage", channel=channel,
+                                  text=response, as_user=True)
+                return True
     else:
-        return True
+        return False
 
 if __name__ == "__main__":
     # starterbot's ID as an environment variable
@@ -231,7 +235,7 @@ if __name__ == "__main__":
         while True:
             command, channel = parse_slack_output(slack_client.rtm_read())
             if command and channel:
-                if takeAction(command,channel):
+                if takeAction(command,channel) == False:
                     handle_command(command, channel)
             time.sleep(READ_WEBSOCKET_DELAY)
     else:
