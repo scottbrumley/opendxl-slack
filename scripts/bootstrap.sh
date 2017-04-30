@@ -11,25 +11,16 @@ else
     ROOT_DIR="$(pwd)/"
 fi
 
-installPython(){
-    PY_VER=$(python -c 'import sys; print(sys.version)')
+installPythonEnv(){
+    wget https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh -P /tmp
+    sudo chmod +x /tmp/Anaconda2-4.3.1-Linux-x86_64.sh
+    /tmp/Anaconda2-4.3.1-Linux-x86_64.sh -b -p /home/vagrant/anaconda2
+    /home/vagrant/anaconda2/bin/conda create -y --name py2.7.9 python=2.7.9
+    source /home/vagrant/anaconda2/envs/py2.7.9/bin/activate py2.7.9
+}
 
-    ### Install Python 2.7.9
-    if [[ "${PY_VER}" =~ "${REQ_PY_VER}" ]]; then
-        echo "Already Version ${REQ_PY_VER}"
-    else
-        sudo apt-get install -y build-essential
-        sudo apt-get install -y libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
-        wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
-        tar -xvf Python-2.7.9.tgz
-        cd Python-2.7.9
-        ./configure
-        make
-        sudo make install
-        cd ..
-        rm -rf Python-2.7.9
-        rm Python-2.7.9.tgz
-    fi
+aptCleanUp(){
+    sudo apt-get -y autoremove
 }
 
 installGit(){
@@ -98,9 +89,12 @@ installDos2Unix(){
 }
 
 installSlackClient(){
-    apt-get install libffi-dev libssl-dev
+    sudo pip install --upgrade slackclient
+    #git clone https://github.com/slackapi/python-slackclient.git
+    #cd python-slackclient/
+    #sudo pip install --upgrade -r requirements.txt
+    #sudo python install setup
 
-    sudo pip install slackclient
 }
 
 setEnvVariables(){
@@ -110,8 +104,17 @@ setEnvVariables(){
 installWatson(){
     sudo pip install --upgrade watson-developer-cloud
 }
+
+setupLogin(){
+    echo "#!/bin/bash" | sudo tee -a /etc/profile.d/environment.sh
+    echo "cd /vagrant" | sudo tee -a /etc/profile.d/environment.sh
+    #echo "source /home/vagrant/anaconda2/envs/py2.7.9/bin/activate" | sudo tee -a /etc/profile.d/environment.sh
+    sudo chmod +x /etc/profile.d/environment.sh
+}
+
 setEnvVariables
-installPython
+#installPythonEnv
+aptCleanUp
 installGit
 installPip
 installCommonPython
@@ -120,6 +123,7 @@ checkOpenSSL
 installDos2Unix
 installSlackClient
 installWatson
+setupLogin
 
 if [[ "${ROOT_DIR}" == "/vagrant" ]]; then
     installDocker
