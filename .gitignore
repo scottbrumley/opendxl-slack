@@ -114,3 +114,4 @@ opendxl-client-python
 scripts/env.sh
 python-slackclient
 opendxl-bootstrap-python
+opendxl-tie-client-python
