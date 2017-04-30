@@ -112,3 +112,4 @@ dxlclient.config
 certs
 opendxl-client-python
 scripts/env.sh
+python-slackclient
