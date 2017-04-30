@@ -113,19 +113,19 @@ setupLogin(){
 }
 
 setEnvVariables
-#installPythonEnv
-aptCleanUp
-installGit
-installPip
-installCommonPython
-installOpenDXLCLient
-checkOpenSSL
-installDos2Unix
-installSlackClient
-installWatson
-setupLogin
+##installPythonEnv
+##aptCleanUp
+#installGit
+#installPip
+##installCommonPython
+#installOpenDXLCLient
+##checkOpenSSL
+#installDos2Unix
+#installSlackClient
+##installWatson
+#setupLogin
 
-if [[ "${ROOT_DIR}" == "/vagrant" ]]; then
-    installDocker
-fi
-#installFlask
+#if [[ "${ROOT_DIR}" == "/vagrant" ]]; then
+#    installDocker
+#fi
+##installFlask
