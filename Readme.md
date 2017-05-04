@@ -40,8 +40,7 @@ https://www.vagrantup.com/
 
 Vagrant uses the Vagrantfile to build environment.  Important lines:
 ```
-config.vm.box = "ubuntu/trusty64"
-config.vm.network "forwarded_port", guest: 5000, host: 5000
+config.vm.box = "sbrumley/opendxl"
 config.vm.provision "shell", path: "scripts/bootstrap.sh"
 ```
 
