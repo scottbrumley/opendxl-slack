@@ -1,72 +1,25 @@
 # Setup Development Environment
+This will build the environment for you and allow you to run the slack bot to work with TIE.  Now you can ask in Slack for TIE reputations
 
 ## Prerequisites
-
-### For Repo
-* Put your broker certs in the brokercerts/ directory [Certificate Setup](./cert_setup.md)
-* Put your client certificates in the certs/ directory [Certificate Setup](./cert_setup.md)
-* Edit dxlclient.config and add your Broker(s)
-
-### For Automated Environment
-1. Download Vagrant https://www.vagrantup.com/downloads.html
-2. Run installer for Vagrant
-3. Download Virtualbox https://www.virtualbox.org/wiki/Downloads?replytocom=98578
-4. Run installer for Virtualbox
-3. Download Git https://git-scm.com/downloads
-
-### Slack Environment Variables
-* Create a file named scripts/env.sh
-* Make executable chmod +x scripts/env.sh
-```
-#!/bin/bash
-echo "export SLACK_BOT_TOKEN='MY BOT TOKEN'" | sudo tee -a /etc/environment
-echo "export BOT_NAME='MY BOT NAME'" | sudo tee -a /etc/environment
-
-```
+ [Requirements](docs/requirements.md)
 
 ## How to get this repo working
 
-1. git clone https://github.com/scottbrumley/opendxl-cookbook.git
-2. cd opendxl-cookbook/
-3. Run vssh.sh (On Windows Launch from Git Bash)
-4. At vagrant@vagrant-ubuntu-trusty-64:/ prompt type cd /vagrant
-5. Copy broker certificates to brokercerts/ directory
-6. Copy client certificates to the certs/ directory
-7. Copy dxlclient.config to your / root directory
+1. git clone https://github.com/scottbrumley/opendxl-slack.git
+2. Run vssh.sh (On Windows Launch from Git Bash)
+3. At vagrant@vagrant-ubuntu-trusty-64:/ prompt type cd /vagrant
 
-## Running TIE Web API Recipe
-1. Run 'flask run --host=0.0.0.0'
-2. Connect http://127.0.0.1:5000/tie/somemd5hash
-
-### A good test is to try: http://127.0.0.1:5000/about
-
-You will want to grab an MD5 out of TIE to test with.  
-
-http://127.0.0.1:5000/tie/somemd5hash/somesha1hash
-
-You can also search with both and MD5 and SHA1 hash
-
-### Example dxlclient.config
-```
-[Certs]
-BrokerCertChain=/vagrant/brokercerts/brokercerts.crt
-CertFile=/vagrant/certs/client.crt
-PrivateKey=/vagrant/certs/client.key
-
-[Brokers]
-unique_broker_id_1=broker_id_1;broker_port_1;broker_hostname_1;broker_ip_1
-unique_broker_id_2=broker_id_2;broker_port_2;broker_hostname_2;broker_ip_2
-```
 
 ### Example
 ```
-./vssh.sh
+./vssh.sh on Linux/Mac OS
+vssh.sh on Windows (make sure windows has Git ssh in PATH)
 ```
 
-
-Be Patient while the environment builds.  Vagrant will build a Ubuntu environment to play around with.
-8. Once built cd /vagrant
-
+### Slack Commands
+1. Invite Your Bot Into Channel /invite @mybot
+2. Ask Bot for File Reputation "i.e. @securitybot check md5 836E935C5539ED23FAD863CB823C0A8"
 
 ## Phoenix the Environment
 If you want to burn the whole thing to the ground just exit the guest and use this command.
@@ -74,24 +27,6 @@ If you want to burn the whole thing to the ground just exit the guest and use th
 exit
 ./vclean.ssh
 ```
-
-## How to SSH into vagrant guest
-```
-vagrant ssh
-```
-
-## How to exit vagrant guest
-```
-exit
-```
-
-### About Flask
-  http://flask.pocoo.org/
- 
-Flask Uses and Environment variable to locate the python program.  It is set in the scripts/bootstrap.sh upon build of the vagrant environment.
-  ```
-  sudo echo 'export FLASK_APP=/vagrant/tie_rep_api.py' >> /etc/bash.bashrc
-  ```
 
 ### About Vagrant
 https://www.vagrantup.com/
