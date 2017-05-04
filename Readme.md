@@ -26,6 +26,8 @@ python dxl_bot.py
 1. Invite Your Bot Into Channel /invite @mybot
 2. Ask Bot for File Reputation "i.e. @securitybot check md5 836E935C5539ED23FAD863CB823C0A8"
 
+![Slack Example](docs/images/slackexample.png)
+
 ## Phoenix the Environment
 If you want to burn the whole thing to the ground just exit the guest and use this command.
 ```
