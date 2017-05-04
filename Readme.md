@@ -17,6 +17,11 @@ This will build the environment for you and allow you to run the slack bot to wo
 vssh.sh on Windows (make sure windows has Git ssh in PATH)
 ```
 
+### Running the bot
+```
+python dxl_bot.py
+```
+
 ### Slack Commands
 1. Invite Your Bot Into Channel /invite @mybot
 2. Ask Bot for File Reputation "i.e. @securitybot check md5 836E935C5539ED23FAD863CB823C0A8"
