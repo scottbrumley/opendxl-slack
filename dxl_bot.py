@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import os, sys, logging
 import re
 import time
+import json
 from slackclient import SlackClient
 from dxlclient.client import DxlClient
 from dxlclient.client_config import DxlClientConfig
@@ -199,8 +201,12 @@ def getFileRep(md5=None,sha1=None,sha256=None):
 
         return myReturnProps
 
+def convertEpoc(myTime):
+    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(myTime))
+
 def takeAction(commandStr,channel):
     checkTie = re.compile('check\s+md5\s+[a-f0-9]{32}\s*')
+    slackResponse = ""
     print commandStr
     if checkTie.match(commandStr):
         response = "Looking up md5 hash ..."
@@ -211,8 +217,20 @@ def takeAction(commandStr,channel):
             myHash = md5.group(1)
             if is_md5(myHash):
                 response = getFileRep(myHash)
+                content = getFileProps(response)
+
+                slackResponse = "File Hash *" + myHash + "* Reputation\n"
+                ## Format a Slack Response
+                i = 1
+                for key in content:
+                    slackResponse = slackResponse + "*Provider: " + key['provider'] + "*\n"
+                    slackResponse = slackResponse + "Creation Date: " + convertEpoc(key['createDate']) + "\n"
+                    slackResponse = slackResponse + "Reputation: " + key['reputation'] + "\n"
+                    slackResponse = slackResponse + "\n"
+                    i = i + 1
+
                 slack_client.api_call("chat.postMessage", channel=channel,
-                                  text=response, as_user=True)
+                                  text=slackResponse, as_user=True)
                 return True
     else:
         return False
