@@ -76,8 +76,7 @@ tiescoreMap = {0:'Not Set', 1:'Known Malicious', 15: 'Most Likely Malicious', 30
 providerMap = {1:'GTI', 3:'Enterprise Reputation', 5:'ATD',7:"MWG"}
 
 ## Get File Properties and Map with Providers and TIE Score
-def getFileProps(myReturnVal):
-    fileProps = myReturnVal
+def getFileProps(fileProps):
     propList = []
 
     if FileProvider.GTI in fileProps:
