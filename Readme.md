@@ -1,6 +1,6 @@
 # OpenDXL Slack Integration with McAFee TIE (Threat Intelligence Exchange)
 
-# Usage (Standalone)
+## Usage (Standalone)
 
 The following steps walk through running the OpenDXL Slack/TIE integration in standalone mode:
 
@@ -12,6 +12,8 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
 * 
 
 
+## Usage (Vagrant portlable development environment)
+
 ## Prerequisites
  [Requirements](docs/requirements.md)
 
@@ -20,7 +22,6 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
 1. git clone https://github.com/scottbrumley/opendxl-slack.git
 2. Run vssh.sh (On Windows Launch from Git Bash)
 3. At vagrant@vagrant-ubuntu-trusty-64:/ prompt type cd /vagrant
-
 
 ### Example
 ```
