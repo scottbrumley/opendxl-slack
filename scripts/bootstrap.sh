@@ -2,6 +2,22 @@
 
 set -e
 
+installSudo(){
+    if ! [ -x "$(command -v sudo)" ]; then
+        echo 'Error: sudo is not installed.' >&2
+        SUDO=""
+        #apt-get install -y sudo
+    else
+        SUDO="sudo "
+    fi
+}
+
+if [[ -d "/vagrant" ]]; then
+    ROOT_DIR="/vagrant/"
+else
+    ROOT_DIR="$(pwd)/"
+fi
+
 installSlackClient(){
     sudo pip install --upgrade slackclient
 }
