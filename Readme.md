@@ -15,10 +15,12 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
 * [Generate a Token](https://api.slack.com/custom-integrations/legacy-tokens) for the Team and User
 * Set the following environment variables:
   * `SLACK_BOT_TOKEN` (assign the generated token)
-  * `BOT_NAME` (assign the name of the created User)
-* Run the SlackBot:
+  * `BOT_NAME` (assign the name of the created Slack User)
+* Run the TIE SlackBot:
   * `python dxl_bot.py`
-  
+* Navigate to the newly created Slack Team (via Web Browser)
+* Send a Slack message that triggers the TIE SlackBot to lookup a file reputation:
+  * `@<User_name> check md5 1c2a2d1853aafec963e5a62264f68134`
 
 
 ## Usage (Vagrant portable development environment)
