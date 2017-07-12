@@ -1,4 +1,4 @@
-# OpenDXL Slack Integration with McAFee TIE (Threat Intelligence Exchange)
+# OpenDXL Slack Integration with McAfee TIE (Threat Intelligence Exchange)
 
 The OpenDXL Slack/TIE integration supports running in a "standalone" mode as well as execution within a
 "Vagrant portable development environment". The steps for running in each of these
