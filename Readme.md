@@ -12,42 +12,42 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
 * 
 
 
-## Usage (Vagrant portlable development environment)
+## Usage (Vagrant portable development environment)
 
-## Prerequisites
+### Prerequisites
  [Requirements](docs/requirements.md)
 
-## How to get this repo working
+### How to get this repo working
 
 1. git clone https://github.com/scottbrumley/opendxl-slack.git
 2. Run vssh.sh (On Windows Launch from Git Bash)
 3. At vagrant@vagrant-ubuntu-trusty-64:/ prompt type cd /vagrant
 
-### Example
+#### Example
 ```
 ./vssh.sh on Linux/Mac OS
 vssh.sh on Windows (make sure windows has Git ssh in PATH)
 ```
 
-### Running the bot
+#### Running the bot
 ```
 python dxl_bot.py
 ```
 
-### Slack Commands
+#### Slack Commands
 1. Invite Your Bot Into Channel /invite @mybot
 2. Ask Bot for File Reputation "i.e. @securitybot check md5 836E935C5539ED23FAD863CB823C0A8"
 
 ![Slack Example](docs/images/slackexample.png)
 
-## Phoenix the Environment
+### Phoenix the Environment
 If you want to burn the whole thing to the ground just exit the guest and use this command.
 ```
 exit
 ./vclean.ssh
 ```
 
-### About Vagrant
+#### About Vagrant
 https://www.vagrantup.com/
 
 Vagrant uses the Vagrantfile to build environment.  Important lines:
