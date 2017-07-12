@@ -20,7 +20,9 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
   * `python dxl_bot.py`
 * Navigate to the newly created Slack Team (via Web Browser)
 * Send a Slack message that triggers the TIE SlackBot to lookup a file reputation:
-  * `@<User_name> check md5 1c2a2d1853aafec963e5a62264f68134`
+  * `@mytiebot check md5 1c2a2d1853aafec963e5a62264f68134`
+  * Replace `mytiebot` with name of the Slack User that was created previously
+* The SlackBot should respond with the reputations for the specified MD5 hash.
 
 
 ## Usage (Vagrant portable development environment)
