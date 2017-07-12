@@ -1,5 +1,14 @@
-# Setup Development Environment
-This will build the environment for you and allow you to run the slack bot to work with TIE.  Now you can ask in Slack for TIE reputations
+# OpenDXL Slack Integration with McAFee TIE (Threat Intelligence Exchange)
+
+# Usage (Standalone)
+
+The following steps walk through running the OpenDXL Slack/TIE integration in standalone mode:
+
+* Download the latest release of the [OpenDXL Slack/TIE integration](https://github.com/opendxl/opendxl-client-python/releases/latest)
+* Extract the downloaded release
+* Provision the files necessary for an OpenDXL client (`dxlclient.config` and related certificate files).
+  * The steps are identical to those described in the [OpenDXL Client Samples Configuration](https://opendxl.github.io/opendxl-client-python/pydoc/sampleconfig.html) documentation.
+
 
 ## Prerequisites
  [Requirements](docs/requirements.md)
