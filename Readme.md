@@ -24,6 +24,7 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
   * Replace `securitybot` with name of the Slack User that was created previously
 * The SlackBot should respond with the reputations for the specified MD5 hash.
 
+![Slack Example](docs/images/slackexample.png)
 
 ## Usage (Vagrant portable development environment)
 
@@ -50,8 +51,6 @@ python dxl_bot.py
 #### Slack Commands
 1. Invite Your Bot Into Channel /invite @mybot
 2. Ask Bot for File Reputation "i.e. @securitybot check md5 836E935C5539ED23FAD863CB823C0A8"
-
-![Slack Example](docs/images/slackexample.png)
 
 ### Phoenix the Environment
 If you want to burn the whole thing to the ground just exit the guest and use this command.
