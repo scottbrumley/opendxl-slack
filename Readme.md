@@ -4,10 +4,12 @@
 
 The following steps walk through running the OpenDXL Slack/TIE integration in standalone mode:
 
-* Download the latest release of the [OpenDXL Slack/TIE integration](https://github.com/opendxl/opendxl-client-python/releases/latest)
+* Download the latest release of the [OpenDXL Slack/TIE integration](https://github.com/scottbrumley/opendxl-slack/releases/latest)
 * Extract the downloaded release
 * Provision the files necessary for an OpenDXL client (`dxlclient.config` and related certificate files).
   * The steps are identical to those described in the [OpenDXL Client Samples Configuration](https://opendxl.github.io/opendxl-client-python/pydoc/sampleconfig.html) documentation.
+* Place the `dxlclient.config` and related certificate files into the same directory as the `dxl_bot.py` file (in the extracted release)
+* 
 
 
 ## Prerequisites
