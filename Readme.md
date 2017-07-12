@@ -49,7 +49,7 @@ vssh.sh on Windows (make sure windows has Git ssh in PATH)
 
 #### Running the bot
 ```
-python dxl_bot.py
+python SLACK_BOT_TOKEN='<Slack API Key>' export BOT_NAME='mycoolbot' dxl_bot.py
 ```
 
 #### Slack Commands
