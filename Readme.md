@@ -21,7 +21,7 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
   * `SLACK_BOT_TOKEN` (assign the generated token)
   * `BOT_NAME` (assign the name of the created Slack User)
 * Run the TIE SlackBot via the `dxl_bot.py` file contained in the the release:
-  * `python dxl_bot.py`
+  * `python SLACK_BOT_TOKEN='<Slack API Key>' BOT_NAME='mycoolbot' dxl_bot.py`
 * Navigate to the newly created Slack Team (via Web Browser)
 * Send a Slack message that triggers the TIE SlackBot to lookup a file reputation:
   * `@securitybot check md5 1c2a2d1853aafec963e5a62264f68134`
@@ -49,7 +49,7 @@ vssh.sh on Windows (make sure windows has Git ssh in PATH)
 
 #### Running the bot
 ```
-python SLACK_BOT_TOKEN='<Slack API Key>' export BOT_NAME='mycoolbot' dxl_bot.py
+python SLACK_BOT_TOKEN='<Slack API Key>' BOT_NAME='mycoolbot' dxl_bot.py
 ```
 
 #### Slack Commands
