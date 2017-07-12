@@ -11,6 +11,8 @@ The following steps walk through running the OpenDXL Slack/TIE integration in st
 * Place the `dxlclient.config` and related certificate files into the same directory as the `dxl_bot.py` file (in the extracted release)
 * Install the required Python dependencies using the `requirements.txt` in the release
   * `pip install -r requirements.txt`
+* Create a [Slack account](https://slack.com/create)
+* 
 
 
 ## Usage (Vagrant portable development environment)
