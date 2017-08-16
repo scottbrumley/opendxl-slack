@@ -231,7 +231,7 @@ if __name__ == "__main__":
     BOT_ID = get_bot_id()
 
     if BOT_ID == None:
-        print "BOT_ID is missing from ENV"
+        print "BOT_NAME is missing from ENV"
         exit(0)
 
     # constants
